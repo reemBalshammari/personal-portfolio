@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>ريم بريكان الشمري | Reem Buraykan Alshammari</title>
+
+<meta
+name="description"
+content="الموقع الشخصي لريم بريكان الشمري — خريجة علوم وهندسة الحاسب الآلي."
+>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
+rel="stylesheet"
+>
+
+<style>
+:root {
+--background: #0d1020;
+--text: #f7f6fc;
+--muted: #babcd0;
+--accent: #b5a1fa;
+--border: rgba(255, 255, 255, 0.15);
+}
+
+* {
+box-sizing: border-box;
+}
+
+html {
+scroll-behavior: smooth;
+}
+
+body {
+margin: 0;
+background: var(--background);
+color: var(--text);
+font-family: "IBM Plex Sans Arabic", sans-serif;
+-webkit-font-smoothing: antialiased;
+}
+
+a {
+color: inherit;
+text-decoration: none;
+}
+
+button {
+font: inherit;
+}
+
+a:focus-visible,
+button:focus-visible {
+outline: 2px solid var(--accent);
+outline-offset: 6px;
+}
+
+::selection {
+background: var(--accent);
+color: var(--background);
+}
+
+.page {
+position: relative;
+min-height: 100svh;
+overflow: hidden;
+isolation: isolate;
+}
+
+.container {
+width: min(1120px, 88%);
+margin-inline: auto;
+}
+
+/* إضاءة هادئة متحركة */
+
+.glow {
+position: absolute;
+top: 160px;
+left: -160px;
+width: 650px;
+height: 650px;
+pointer-events: none;
+z-index: -1;
+background: radial-gradient(
+circle,
+rgba(151, 123, 232, 0.18),
+transparent 67%
+);
+animation: glowMove 12s ease-in-out infinite alternate;
+}
+
+.orbit {
+position: absolute;
+top: 240px;
+left: -260px;
+width: 660px;
+height: 660px;
+border: 1px solid rgba(181, 161, 250, 0.13);
+border-radius: 50%;
+pointer-events: none;
+z-index: -1;
+animation: orbitMove 35s linear infinite;
+}
+
+.orbit::after {
+content: "";
+position: absolute;
+top: 91px;
+left: 91px;
+width: 10px;
+height: 10px;
+border-radius: 50%;
+background: var(--accent);
+box-shadow: 0 0 24px rgba(181, 161, 250, 0.8);
+}
+
+/* أعلى الصفحة */
+
+.header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 20px;
+padding-block: 24px;
+border-bottom: 1px solid var(--border);
+}
+
+.brand {
+width: 76px;
+height: 76px;
+flex-shrink: 0;
+border-radius: 50%;
+background: #fff;
+display: grid;
+place-items: center;
+overflow: hidden;
+}
+
+.brand img {
+width: 100%;
+height: 100%;
+object-fit: contain;
+}
+
+.brand-fallback {
+font-family: Georgia, serif;
+font-size: 32px;
+color: #211a48;
+}
+
+[hidden] {
+display: none !important;
+}
+
+.navigation {
+display: flex;
+align-items: center;
+justify-content: flex-end;
+gap: 24px;
+flex-wrap: wrap;
+}
+
+.navigation a {
+font-size: 15px;
+transition: color 0.25s;
+}
+
+.navigation a:hover {
+color: var(--accent);
+}
+
+.language-button {
+min-height: 44px;
+padding: 8px 16px;
+color: var(--text);
+background: transparent;
+border: 1px solid var(--border);
+border-radius: 6px;
+cursor: pointer;
+transition: border-color 0.25s;
+}
+
+.language-button:hover {
+border-color: var(--accent);
+}
+
+/* التعريف */
+
+.hero {
+padding-block: clamp(55px, 9vw, 105px) 60px;
+}
+
+.eyebrow {
+margin: 0 0 25px;
+color: var(--accent);
+font-size: 13px;
+letter-spacing: 3px;
+direction: ltr;
+text-align: start;
+}
+
+html[dir="rtl"] .eyebrow {
+text-align: right;
+}
+
+h1 {
+margin: 0;
+font-size: clamp(40px, 6.8vw, 80px);
+font-weight: 500;
+line-height: 1.4;
+letter-spacing: -1.5px;
+text-wrap: balance;
+}
+
+.english-name {
+margin: 12px 0 30px;
+color: var(--muted);
+font-family: Georgia, serif;
+font-size: clamp(21px, 3vw, 32px);
+font-style: italic;
+direction: ltr;
+text-align: right;
+}
+
+html[dir="ltr"] .english-name {
+font-family: "IBM Plex Sans Arabic", sans-serif;
+font-style: normal;
+direction: rtl;
+text-align: left;
+}
+
+.degree {
+margin: 0;
+font-size: clamp(20px, 3vw, 27px);
+font-weight: 500;
+line-height: 1.7;
+}
+
+.quote {
+max-width: 620px;
+margin: 24px 0 35px;
+padding-inline-start: 20px;
+border-inline-start: 2px solid var(--accent);
+color: var(--muted);
+font-size: clamp(18px, 2.5vw, 22px);
+line-height: 1.9;
+}
+
+.actions {
+display: flex;
+flex-wrap: wrap;
+gap: 12px;
+}
+
+.button {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 12px;
+min-height: 50px;
+padding: 12px 23px;
+border: 1px solid var(--border);
+border-radius: 6px;
+font-size: 16px;
+transition:
+transform 0.25s,
+border-color 0.25s,
+background 0.25s;
+}
+
+.button:hover {
+transform: translateY(-4px);
+border-color: var(--accent);
+background: rgba(181, 161, 250, 0.07);
+}
+
+.button-primary {
+color: #18142a;
+background: var(--accent);
+border-color: var(--accent);
+}
+
+.button-primary:hover {
+background: #c6b6ff;
+}
+
+.arrow {
+display: inline-block;
+transition: transform 0.25s;
+}
+
+.button:hover .arrow {
+transform: translate(2px, -2px);
+}
+
+/* مجالات التخصص */
+
+.fields {
+padding-block: 30px 45px;
+border-top: 1px solid var(--border);
+}
+
+.section-label {
+margin: 0 0 20px;
+font-size: 15px;
+font-weight: 400;
+color: var(--muted);
+}
+
+.field-list {
+display: flex;
+flex-wrap: wrap;
+gap: 14px 28px;
+margin: 0;
+padding: 0;
+list-style: none;
+}
+
+.field-list li {
+font-size: 16px;
+line-height: 1.8;
+}
+
+.field-list li::before {
+content: "·";
+margin-inline-end: 10px;
+color: var(--accent);
+}
+
+.footer {
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 12px;
+padding-block: 22px;
+border-top: 1px solid var(--border);
+color: var(--muted);
+font-size: 13px;
+}
+
+/* حركة دخول المحتوى */
+
+.hero > * {
+animation: enter 0.85s ease-out both;
+}
+
+.hero > :nth-child(2) {
+animation-delay: 0.12s;
+}
+
+.hero > :nth-child(3) {
+animation-delay: 0.22s;
+}
+
+.hero > :nth-child(4) {
+animation-delay: 0.32s;
+}
+
+.hero > :nth-child(5) {
+animation-delay: 0.42s;
+}
+
+.hero > :nth-child(6) {
+animation-delay: 0.52s;
+}
+
+@keyframes enter {
+from {
+opacity: 0;
+transform: translateY(18px);
+}
+
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+@keyframes glowMove {
+to {
+transform: translate(65px, 75px) scale(1.12);
+}
+}
+
+@keyframes orbitMove {
+to {
+transform: rotate(360deg);
+}
+}
+
+@media (max-width: 600px) {
+.container {
+width: 88%;
+}
+
+.header {
+gap: 12px;
+padding-block: 18px;
+}
+
+.brand {
+width: 60px;
+height: 60px;
+}
+
+.navigation {
+gap: 12px;
+}
+
+.navigation a {
+font-size: 14px;
+}
+
+.language-button {
+padding-inline: 11px;
+}
+
+.hero {
+padding-top: 48px;
+padding-bottom: 38px;
+}
+
+h1 {
+letter-spacing: -0.7px;
+}
+
+.actions {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.button {
+padding-inline: 10px;
+font-size: 15px;
+}
+
+.orbit {
+left: -470px;
+}
+
+.field-list {
+gap: 12px 20px;
+}
+}
+
+@media (prefers-reduced-motion: reduce) {
+html {
+scroll-behavior: auto;
+}
+
+*,
+*::before,
+*::after {
+animation: none !important;
+transition: none !important;
+}
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<div class="glow" aria-hidden="true"></div>
+<div class="orbit" aria-hidden="true"></div>
+
+<header class="header container">
+
+<a
+class="brand"
+href="./"
+aria-label="ريم بريكان الشمري — الرئيسية"
+>
+<img
+id="logo"
+src="logo.jpeg"
+alt="شعار ريم الشمري"
+width="76"
+height="76"
+>
+<span id="logoFallback" class="brand-fallback" hidden>
+RA
+</span>
+</a>
+
+<nav class="navigation" aria-label="روابط التواصل">
+<a
+href="https://www.linkedin.com/in/reem-buraykan-alshammari"
+target="_blank"
+rel="noopener noreferrer"
+>
+LinkedIn ↗
+</a>
+
+<a
+href="https://github.com/reemBalshammari"
+target="_blank"
+rel="noopener noreferrer"
+>
+GitHub ↗
+</a>
+
+<button
+id="languageButton"
+class="language-button"
+type="button"
+aria-label="Switch to English"
+>
+English
+</button>
+</nav>
+
+</header>
+
+<main class="container">
+
+<section class="hero" aria-labelledby="name">
+
+<p class="eyebrow">
+REEM · PERSONAL PORTFOLIO
+</p>
+
+<h1 id="name">ريم بريكان الشمري</h1>
+
+<p id="secondaryName" class="english-name">
+Reem Buraykan Alshammari
+</p>
+
+<h2 id="degree" class="degree">
+خريجة علوم وهندسة الحاسب الآلي
+</h2>
+
+<blockquote id="quote" class="quote">
+قيمة التقنية في الأثر الذي تتركه، لا في التعقيد الذي تحمله.
+</blockquote>
+
+<div class="actions">
+
+<a
+class="button button-primary"
+href="cv.pdf"
+target="_blank"
+rel="noopener noreferrer"
+>
+<span id="cvLabel">سيرتي الذاتية</span>
+<span class="arrow" aria-hidden="true">↗</span>
+</a>
+
+<a
+class="button"
+href="https://www.linkedin.com/in/reem-buraykan-alshammari"
+target="_blank"
+rel="noopener noreferrer"
+>
+<span>LinkedIn</span>
+<span class="arrow" aria-hidden="true">↗</span>
+</a>
+
+<a
+class="button"
+href="https://github.com/reemBalshammari?tab=repositories"
+target="_blank"
+rel="noopener noreferrer"
+>
+<span id="projectsLabel">أعمالي على GitHub</span>
+<span class="arrow" aria-hidden="true">↗</span>
+</a>
+
+<a
+class="button"
+href="mailto:reembrykan@gmail.com"
+>
+<span id="contactLabel">تواصل معي</span>
+<span class="arrow" aria-hidden="true">↗</span>
+</a>
+
+</div>
+</section>
+
+<section class="fields" aria-labelledby="fieldsTitle">
+
+<h2 id="fieldsTitle" class="section-label">
+مجالات التخصص
+</h2>
+
+<ul id="fieldList" class="field-list">
+<li>هندسة البرمجيات</li>
+<li>هندسة البيانات</li>
+<li>الذكاء الاصطناعي وتعلّم الآلة</li>
+<li>علوم البيانات</li>
+<li>الأمن السيبراني</li>
+<li>الشبكات والحوسبة السحابية</li>
+<li>هندسة الحاسب والأنظمة المدمجة</li>
+</ul>
+
+</section>
+
+</main>
+
+<footer class="footer container">
+<span id="footerName">ريم بريكان الشمري</span>
+<span id="location">المملكة العربية السعودية</span>
+</footer>
+
+</div>
+
+<script>
+const translations = {
+ar: {
+name: "ريم بريكان الشمري",
+secondaryName: "Reem Buraykan Alshammari",
+degree: "خريجة علوم وهندسة الحاسب الآلي",
+quote:
+"قيمة التقنية في الأثر الذي تتركه، لا في التعقيد الذي تحمله.",
+cv: "سيرتي الذاتية",
+projects: "أعمالي على GitHub",
+contact: "تواصل معي",
+fieldsTitle: "مجالات التخصص",
+location: "المملكة العربية السعودية",
+navigation: "روابط التواصل",
+home: "ريم بريكان الشمري — الرئيسية",
+fields: [
+"هندسة البرمجيات",
+"هندسة البيانات",
+"الذكاء الاصطناعي وتعلّم الآلة",
+"علوم البيانات",
+"الأمن السيبراني",
+"الشبكات والحوسبة السحابية",
+"هندسة الحاسب والأنظمة المدمجة"
+]
+},
+
+en: {
+name: "Reem Buraykan Alshammari",
+secondaryName: "ريم بريكان الشمري",
+degree: "Computer Science & Engineering Graduate",
+quote:
+"The value of technology lies in its impact, not its complexity.",
+cv: "My CV",
+projects: "My GitHub",
+contact: "Get in touch",
+fieldsTitle: "Fields within Computer Science & Engineering",
+location: "Saudi Arabia",
+navigation: "Contact links",
+home: "Reem Buraykan Alshammari — Home",
+fields: [
+"Software Engineering",
+"Data Engineering",
+"Artificial Intelligence & Machine Learning",
+"Data Science",
+"Cybersecurity",
+"Networks & Cloud Computing",
+"Computer Engineering & Embedded Systems"
+]
+}
+};
+
+const languageButton = document.getElementById("languageButton");
+let currentLanguage = "ar";
+
+function setLanguage(language) {
+const content = translations[language];
+
+document.documentElement.lang = language;
+document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+
+document.getElementById("name").textContent = content.name;
+document.getElementById("secondaryName").textContent =
+content.secondaryName;
+document.getElementById("degree").textContent = content.degree;
+document.getElementById("quote").textContent = content.quote;
+document.getElementById("cvLabel").textContent = content.cv;
+document.getElementById("projectsLabel").textContent =
+content.projects;
+document.getElementById("contactLabel").textContent =
+content.contact;
+document.getElementById("fieldsTitle").textContent =
+content.fieldsTitle;
+document.getElementById("footerName").textContent = content.name;
+document.getElementById("location").textContent = content.location;
+
+document.querySelector(".navigation").setAttribute(
+"aria-label",
+content.navigation
+);
+
+document.querySelector(".brand").setAttribute(
+"aria-label",
+content.home
+);
+
+document.querySelectorAll("#fieldList li").forEach(
+function (item, index) {
+item.textContent = content.fields[index];
+}
+);
+
+languageButton.textContent =
+language === "ar" ? "English" : "العربية";
+
+languageButton.setAttribute(
+"aria-label",
+language === "ar" ? "Switch to English" : "التبديل إلى العربية"
+);
+
+currentLanguage = language;
+}
+
+languageButton.addEventListener("click", function () {
+setLanguage(currentLanguage === "ar" ? "en" : "ar");
+});
+
+const logo = document.getElementById("logo");
+const logoFallback = document.getElementById("logoFallback");
+
+function showLogoFallback() {
+logo.hidden = true;
+logoFallback.hidden = false;
+}
+
+logo.addEventListener("error", showLogoFallback);
+
+if (logo.complete && logo.naturalWidth === 0) {
+showLogoFallback();
+}
+</script>
+</body>
+</html>
