@@ -8,7 +8,7 @@
 
 <meta
 name="description"
-content="ريم بريكان الشمري — خريجة علوم وهندسة الحاسب الآلي. أعمالي التقنية، ورش العمل، والتدريب."
+content="ريم بريكان الشمري — خريجة علوم وهندسة الحاسب الآلي. أعمالي التقنية، التعليم، الورش والتدريب."
 >
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,6 +51,7 @@ overflow: hidden;
 
 button, a {
 -webkit-tap-highlight-color: transparent;
+touch-action: manipulation;
 }
 
 button {
@@ -60,10 +61,6 @@ font: inherit;
 a {
 color: inherit;
 text-decoration: none;
-}
-
-button, a {
-touch-action: manipulation;
 }
 
 button:focus-visible,
@@ -291,10 +288,14 @@ border-color: #8d76cd;
 background: #765eb9;
 }
 
+.arrow-slot {
+display: inline-flex;
+flex-shrink: 0;
+}
+
 .arrow {
 width: 17px;
 height: 17px;
-flex-shrink: 0;
 stroke: #fff;
 transition: transform .25s;
 }
@@ -573,7 +574,7 @@ line-height: 1.9;
 color: var(--muted);
 }
 
-/* التدريب */
+/* التعليم والتدريب */
 
 .training-grid {
 display: grid;
@@ -604,6 +605,39 @@ margin: 0;
 color: var(--muted);
 font-size: 15px;
 line-height: 1.9;
+}
+
+.education-box {
+padding: 32px;
+border-radius: 12px;
+background: linear-gradient(
+135deg,
+rgba(90,69,142,.22),
+rgba(20,24,44,.8)
+);
+}
+
+.education-icon {
+color: var(--accent);
+margin-bottom: 12px;
+}
+
+.education-box h3 {
+font-size: clamp(22px, 3vw, 29px);
+line-height: 1.7;
+}
+
+.education-box .university {
+color: var(--accent);
+margin-bottom: 22px;
+font-size: 17px;
+}
+
+.education-box .education-description {
+padding-top: 22px;
+border-top: 1px solid var(--line);
+font-size: 16px;
+line-height: 2;
 }
 
 .footer {
@@ -638,6 +672,7 @@ border: 1px solid var(--line);
 border-radius: 12px;
 background: #101426;
 color: var(--text);
+overflow: auto;
 }
 
 .viewer::backdrop {
@@ -683,15 +718,12 @@ animation: enter .9s ease-out both;
 .reveal {
 opacity: 1;
 transform: none;
+transition: opacity .7s ease, transform .7s ease;
 }
 
 .reveal.waiting {
 opacity: 0;
 transform: translateY(24px);
-}
-
-.reveal {
-transition: opacity .7s ease, transform .7s ease;
 }
 
 @keyframes enter {
@@ -799,7 +831,7 @@ font-size: 41px;
 
 .hero .actions {
 display: grid;
-grid-template-columns: repeat(2,minmax(0,1fr));
+grid-template-columns: repeat(2, minmax(0,1fr));
 }
 
 .button {
@@ -818,7 +850,8 @@ flex: 1 1 auto;
 padding-top: 55px;
 }
 
-.workshop {
+.workshop,
+.education-box {
 padding: 25px;
 }
 
@@ -867,10 +900,16 @@ height="66"
 </a>
 
 <nav class="nav" aria-label="Navigation">
-<a href="#work" data-ar="أعمالي" data-en="My work">أعمالي</a>
+<a href="#work" data-ar="أعمالي" data-en="My work">
+أعمالي
+</a>
 
 <a href="#workshops" data-ar="الورش" data-en="Workshops">
 الورش
+</a>
+
+<a href="#education" data-ar="التعليم" data-en="Education">
+التعليم
 </a>
 
 <a
@@ -957,8 +996,15 @@ rel="noopener noreferrer"
 
 <a
 class="button"
-href="#work"
+href="https://github.com/reemBalshammari"
+target="_blank"
+rel="noopener noreferrer"
 >
+<span>GitHub</span>
+<span class="arrow-slot" aria-hidden="true"></span>
+</a>
+
+<a class="button" href="#work">
 <span data-ar="اكتشف أعمالي" data-en="Explore my work">
 اكتشف أعمالي
 </span>
@@ -1001,27 +1047,33 @@ data-en="Fields within Computer Science & Engineering"
 <li data-ar="هندسة البرمجيات" data-en="Software Engineering">
 هندسة البرمجيات
 </li>
+
 <li data-ar="هندسة البيانات" data-en="Data Engineering">
 هندسة البيانات
 </li>
+
 <li
 data-ar="الذكاء الاصطناعي وتعلّم الآلة"
 data-en="AI & Machine Learning"
 >
 الذكاء الاصطناعي وتعلّم الآلة
 </li>
+
 <li data-ar="علوم البيانات" data-en="Data Science">
 علوم البيانات
 </li>
+
 <li data-ar="الأمن السيبراني" data-en="Cybersecurity">
 الأمن السيبراني
 </li>
+
 <li
 data-ar="الشبكات والحوسبة السحابية"
 data-en="Networks & Cloud Computing"
 >
 الشبكات والحوسبة السحابية
 </li>
+
 <li
 data-ar="هندسة الحاسب والأنظمة المدمجة"
 data-en="Computer Engineering & Embedded Systems"
@@ -1124,6 +1176,7 @@ loading="lazy"
 decoding="async"
 >
 </button>
+
 <span
 class="image-hint"
 data-ar="اضغط على الصورة لعرض التفاصيل"
@@ -1196,6 +1249,7 @@ loading="lazy"
 decoding="async"
 >
 </button>
+
 <span
 class="image-hint"
 data-ar="اضغط على الصورة لعرض التفاصيل"
@@ -1266,6 +1320,7 @@ loading="lazy"
 decoding="async"
 >
 </button>
+
 <span
 class="image-hint"
 data-ar="اضغط على الصورة لعرض التفاصيل"
@@ -1301,7 +1356,7 @@ data-en="Wasl — bringing opportunities within reach!"
 <p
 class="description"
 data-ar="مشروع تخرج عملت عليه ضمن مجموعة، يربط الأشخاص ذوي الإعاقة بفرص التوظيف والتدريب. وأطلقتُ بنفسي حملته الترويجية بعنوان «وصل، فرصتك توصل» للتعريف بالمشروع ورسالته."
-data-en="A graduation project I developed as part of a group, connecting people with disabilities to employment and training opportunities. I personally launched its promotional campaign, “Wasl, Your Opportunity Reaches You,” to introduce the project and its mission."
+data-en="A graduation project I worked on as part of a group, connecting people with disabilities to employment and training opportunities. I personally launched its promotional campaign, “Wasl, Your Opportunity Reaches You,” to introduce the project and its mission."
 >
 مشروع تخرج عملت عليه ضمن مجموعة، يربط الأشخاص ذوي الإعاقة
 بفرص التوظيف والتدريب. وأطلقتُ بنفسي حملته الترويجية بعنوان
@@ -1342,6 +1397,7 @@ loading="lazy"
 decoding="async"
 >
 </button>
+
 <span
 class="image-hint"
 data-ar="اضغط على الصورة لعرض التفاصيل"
@@ -1358,7 +1414,10 @@ data-en="Select the image to view details"
 <section class="section" id="workshops">
 <div class="section-heading reveal">
 <span class="section-number">02</span>
-<h2 data-ar="الورش ومشاركة المعرفة" data-en="Workshops & knowledge sharing">
+<h2
+data-ar="الورش ومشاركة المعرفة"
+data-en="Workshops & knowledge sharing"
+>
 الورش ومشاركة المعرفة
 </h2>
 </div>
@@ -1409,11 +1468,70 @@ rel="noopener noreferrer"
 </article>
 </section>
 
+<!-- التعليم -->
+
+<section class="section" id="education">
+<div class="section-heading reveal">
+<span class="section-number">03</span>
+<h2 data-ar="التعليم" data-en="Education">
+التعليم
+</h2>
+</div>
+
+<article class="training-item education-box reveal">
+
+<svg
+class="education-icon"
+width="54"
+height="54"
+viewBox="0 0 64 64"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+stroke-linecap="round"
+stroke-linejoin="round"
+aria-hidden="true"
+>
+<path d="M5 24 32 12 59 24 32 36 5 24Z"></path>
+<path d="M16 30v15c8 8 24 8 32 0V30"></path>
+<path d="M59 24v20"></path>
+<path d="M55 50 59 44 63 50"></path>
+</svg>
+
+<h3
+data-ar="بكالوريوس علوم وهندسة الحاسب الآلي"
+data-en="Bachelor’s Degree in Computer Science and Engineering"
+>
+بكالوريوس علوم وهندسة الحاسب الآلي
+</h3>
+
+<p
+class="university"
+data-ar="كلية علوم وهندسة الحاسب — جامعة حفر الباطن"
+data-en="College of Computer Science and Engineering — University of Hafr Al-Batin"
+>
+كلية علوم وهندسة الحاسب — جامعة حفر الباطن
+</p>
+
+<p
+class="education-description"
+data-ar="حوّلت ما تعلّمته إلى مشاريع تطبيقية، وتولّيت قيادة الشعبة والتنسيق مع أستاذ المقرر ومساندته في مهام الشعبة. لديّ العديد من التوصيات من أعضاء هيئة التدريس، وأواصل تطوير مهاراتي من خلال التطبيق العملي ومشاركة المعرفة."
+data-en="I turned what I learned into practical projects and served as a class representative, coordinating with the course instructor and assisting with class-related tasks. I have received numerous recommendations from faculty members and continue developing my skills through hands-on work and knowledge sharing."
+>
+حوّلت ما تعلّمته إلى مشاريع تطبيقية، وتولّيت قيادة الشعبة
+والتنسيق مع أستاذ المقرر ومساندته في مهام الشعبة.
+لديّ العديد من التوصيات من أعضاء هيئة التدريس،
+وأواصل تطوير مهاراتي من خلال التطبيق العملي ومشاركة المعرفة.
+</p>
+
+</article>
+</section>
+
 <!-- التدريب -->
 
 <section class="section" id="training">
 <div class="section-heading reveal">
-<span class="section-number">03</span>
+<span class="section-number">04</span>
 <h2 data-ar="التدريب والبرامج" data-en="Training & programs">
 التدريب والبرامج
 </h2>
@@ -1424,9 +1542,11 @@ rel="noopener noreferrer"
 <span data-ar="تدريب تعاوني" data-en="Cooperative Training">
 تدريب تعاوني
 </span>
+
 <h3 data-ar="وزارة التجارة" data-en="Ministry of Commerce">
 وزارة التجارة
 </h3>
+
 <p
 data-ar="تجربة عملية في بيئة تقنية المعلومات والمشاركة في المشاريع التقنية."
 data-en="Practical experience in an IT environment and participation in technical projects."
@@ -1439,12 +1559,14 @@ data-en="Practical experience in an IT environment and participation in technica
 <span data-ar="تدريب تعاوني" data-en="Cooperative Training">
 تدريب تعاوني
 </span>
+
 <h3
 data-ar="مدينة الملك فهد الطبية"
 data-en="King Fahad Medical City"
 >
 مدينة الملك فهد الطبية
 </h3>
+
 <p
 data-ar="تجربة عملية في أنظمة تقنية المعلومات ضمن بيئة القطاع الصحي."
 data-en="Practical experience with IT systems in a healthcare environment."
@@ -1457,11 +1579,13 @@ data-en="Practical experience with IT systems in a healthcare environment."
 <span data-ar="برنامج تقني" data-en="Technical Program">
 برنامج تقني
 </span>
+
 <h3 data-ar="أكاديمية طويق" data-en="Tuwaiq Academy">
 أكاديمية طويق
 </h3>
+
 <p
-data-ar=" تطوير تطبيقات الويب باستخدام ASP.NET Core MVC، ومن خلاله طوّرت مشروع نبهني كهرباء."
+data-ar="معسكر تطوير تطبيقات الويب باستخدام ASP.NET Core MVC، ومن خلاله طوّرت مشروع نبهني كهرباء."
 data-en="ASP.NET Core MVC Web Development Bootcamp, during which I developed Nabihni Electricity."
 >
 معسكر تطوير تطبيقات الويب باستخدام ASP.NET Core MVC،
@@ -1470,6 +1594,7 @@ data-en="ASP.NET Core MVC Web Development Bootcamp, during which I developed Nab
 </article>
 </div>
 </section>
+
 </main>
 
 <footer class="footer container">
@@ -1519,6 +1644,7 @@ data-en="Project gallery"
 >
 معرض الأعمال
 </p>
+
 <button
 class="viewer-close"
 id="closeViewer"
@@ -1582,6 +1708,11 @@ item.getAttribute("data-" + language + "-label")
 );
 });
 
+document.querySelector(".nav").setAttribute(
+"aria-label",
+language === "ar" ? "التنقل بين الأقسام" : "Section navigation"
+);
+
 languageButton.textContent = language === "ar" ? "English" : "العربية";
 
 languageButton.setAttribute(
@@ -1600,15 +1731,23 @@ const viewer = document.getElementById("imageViewer");
 const viewerImage = document.getElementById("viewerImage");
 const closeViewer = document.getElementById("closeViewer");
 
+let lastImageButton = null;
+
 document.querySelectorAll(".image-button").forEach(function (button) {
 button.addEventListener("click", function () {
 const image = button.querySelector("img");
 
+lastImageButton = button;
 viewerImage.src = image.currentSrc || image.src;
 viewerImage.alt = image.alt;
 
+if (typeof viewer.showModal === "function") {
 viewer.showModal();
+viewer.scrollTop = 0;
 document.body.classList.add("modal-open");
+} else {
+window.open(image.src, "_blank", "noopener,noreferrer");
+}
 });
 });
 
@@ -1633,6 +1772,10 @@ viewer.close();
 
 viewer.addEventListener("close", function () {
 document.body.classList.remove("modal-open");
+
+if (lastImageButton) {
+lastImageButton.focus();
+}
 });
 
 /* دعم الاسمين المحتملين لصورة نبهني */
